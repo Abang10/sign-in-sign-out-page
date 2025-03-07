@@ -31,30 +31,47 @@ function validatePassword(pw) {
 
 }
 
-function val(){
+function val(event){
     let password = document.getElementById("pw").value;
     let error  = document.getElementById("errorPassword");
+    // let valid = true;
     if(password.length < 8){ //Check for length of password
         error.innerText = "Password must be longer than 8.";
         error.style.color = "red";
+        event.preventDefault();
+
+        // valid = false;
     }
     else if(!/[A-Z]/.test(password)){// Check if there is a single capital letter in password
         error.innerText = "You must have a captial letter.";
         error.style.color = "red";
+        event.preventDefault();
+
+        // valid = false;
     }
     else if(!/[a-z]/.test(password)){// Check if there is a single small letter in password
         error.innerText = "You must have a small letter.";
         error.style.color = "red";
+        event.preventDefault();
+
+        // valid = false;
     }
     else if(!/[0-9]/.test(password)){// Check if there is a digit in password
         error.innerText = "You must have a digit.";
         error.style.color = "red";
+        event.preventDefault();
+
+        // valid = false;
     }
     else if(!/[^A-Za-z0-9]/.test(password)){// Check if there is a special character in the password
         error.innerText = "You must have a special character.";
         error.style.color = "red";
+        event.preventDefault();
+
+        // valid = false;
     }
     else{
         error.innerText = "";
     }
+    // return valid;
 }
